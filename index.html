@@ -9,9 +9,9 @@
 <style>
 @font-face{font-family:"Archivo";src:url("assets/fonts/archivo-var.woff2") format("woff2");font-weight:100 900;font-stretch:62% 125%;font-display:swap}
 :root{
-  --night:#0A1A33; --night-2:#10264A; --night-line:#22406E;
-  --paper:#F4F7FC; --surface:#FFFFFF; --ink:#0F2240; --ink-2:#4A5A74; --line:#DCE4F0;
-  --blue:#3B82F6; --green:#22C55E; --amber:#F59E0B; --coral:#F43F5E; --violet:#8B5CF6; --teal:#14B8A6; --sky:#38BDF8;
+  --night:#070F24; --night-2:#0D1A38; --night-line:#22325E;
+  --paper:#F5F7FB; --surface:#FFFFFF; --ink:#0F2240; --ink-2:#4A5A74; --line:#E3E8F2;
+  --blue:#3D6BFF; --green:#22C55E; --amber:#F59E0B; --coral:#F43F5E; --violet:#7C5CFF; --teal:#14B8A6; --sky:#22D3EE;
   --blue-50:#EAF2FF; --green-50:#E7F8EE; --amber-50:#FEF4E2; --violet-50:#F2EDFF; --teal-50:#E2F7F5; --coral-50:#FDECEF;
   --r-sm:6px; --r-md:12px; --r-lg:20px; --max:1220px;
   --s-1:clamp(.82rem,.8rem + .1vw,.88rem); --s0:clamp(1rem,.96rem + .2vw,1.08rem); --s1:clamp(1.18rem,1.08rem + .5vw,1.42rem);
@@ -315,6 +315,27 @@ dialog.vid{border:0;padding:0;background:transparent;width:min(1200px,94vw)}
 dialog.vid::backdrop{background:rgba(6,14,30,.9)}
 dialog.vid video{width:100%;border-radius:12px}
 @media print{header.top,.media,dialog,.tablist{display:none}.tabpanel[hidden]{display:block}.reveal{opacity:1;transform:none}}
+
+/* ===== Modern refresh (Nov 2026): aurora hero, schedule grid, softer cards, framed portrait ===== */
+.hero{background:
+  radial-gradient(900px 480px at 88% -8%,rgba(61,107,255,.55) 0,transparent 60%),
+  radial-gradient(640px 420px at 62% 18%,rgba(124,92,255,.28) 0,transparent 62%),
+  radial-gradient(620px 380px at -5% 40%,rgba(34,211,238,.16) 0,transparent 65%),
+  linear-gradient(180deg,#070F24 0,#0A1530 100%)}
+.hero::before{content:"";position:absolute;inset:0;pointer-events:none;
+  background-image:linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px);
+  background-size:56px 56px;-webkit-mask-image:radial-gradient(1100px 620px at 70% 0,#000 0,transparent 75%);mask-image:radial-gradient(1100px 620px at 70% 0,#000 0,transparent 75%)}
+.hero .wrap{position:relative}
+.portrait-frame{padding:3px;border-radius:26px;background:linear-gradient(140deg,#3D6BFF,#7C5CFF 55%,#22D3EE);box-shadow:0 30px 70px -20px rgba(61,107,255,.55),0 18px 50px rgba(0,0,0,.35)}
+.portrait{width:clamp(170px,19vw,260px);aspect-ratio:4/5;height:auto;border-radius:23px;border:0;box-shadow:none;object-fit:cover;object-position:50% 20%}
+@media (max-width:720px){.portrait-frame{order:-1;justify-self:start}.portrait{width:clamp(150px,44vw,200px)}}
+.btn.glow{background:linear-gradient(135deg,#FBBF24,#F59E0B 55%,#FB923C);border-color:transparent;box-shadow:0 10px 30px -10px rgba(245,158,11,.7)}
+.schedule{background:rgba(10,20,46,.66);backdrop-filter:blur(6px);border-color:rgba(124,92,255,.22)}
+.proj,.case,.ai-detail,.earlier,.cap,.cert{border-color:var(--line);box-shadow:0 1px 2px rgba(15,34,64,.04),0 12px 32px -16px rgba(15,34,64,.16)}
+.contact{background:
+  radial-gradient(620px 300px at 100% 0,rgba(61,107,255,.55) 0,transparent 60%),
+  radial-gradient(480px 300px at 0 100%,rgba(124,92,255,.32) 0,transparent 65%),
+  linear-gradient(160deg,#070F24,#0D1A38);box-shadow:0 30px 70px -30px rgba(7,15,36,.6)}
 </style>
 </head>
 <body>
@@ -354,7 +375,7 @@ dialog.vid video{width:100%;border-radius:12px}
         </div>
         <div class="creds" aria-label="Credentials"><span class="cred">PMP</span><span class="cred">PMI-SP</span><span class="cred">PMI-RMP</span><span class="cred">BSc Structural Engineering, Honours</span></div>
       </div>
-      <img class="portrait" src="assets/img/portrait.webp" alt="Portrait of Mohamed Sami Marey" width="206" height="206">
+      <div class="portrait-frame"><img class="portrait" src="assets/img/portrait.webp" alt="Portrait of Mohamed Sami Marey" width="260" height="325"></div>
     </div>
 
     <div class="schedule">
@@ -412,7 +433,7 @@ dialog.vid video{width:100%;border-radius:12px}
   <div class="wrap">
     <div class="sec-intro">
       <h2 id="proj-title">Projects I plan and control</h2>
-      <p class="muted">Budgets and activity counts come from the P6 schedules I built and update. Switch the measure to compare the programmes.</p>
+      <p class="muted">Activity counts come from the P6 schedules I built and update; budgets are rounded for this public version. Switch the measure to compare the programmes.</p>
     </div>
     <div class="metric-switch" role="group" aria-label="Compare by">
       <button data-metric="budget" aria-pressed="true">Budget</button>
@@ -450,7 +471,7 @@ dialog.vid video{width:100%;border-radius:12px}
           <p class="result">The weekly P6 update went from <em>at least 3 days to about 20 minutes</em>, and has run for 16 cycles in a row.</p>
           <dl class="facts">
             <dt>Client</dt><dd>TBC, via Mehwar Al-Eqtisad (Al-Rajhi subsidiary)</dd>
-            <dt>Scale</dt><dd>32 schools, 4 groups, 74,261 activities, SAR 747.2 M</dd>
+            <dt>Scale</dt><dd>32 schools, 4 groups, 74,261 activities, SAR 700 M+</dd>
             <dt>My role</dt><dd>Designed, built and run it, with Claude as AI partner</dd>
             <dt>Status</dt><dd>Live, weekly since July 2026</dd>
           </dl>
@@ -524,8 +545,8 @@ dialog.vid video{width:100%;border-radius:12px}
           <h3 id="c-eot">School 158 sports hall: forensic EOT claim</h3>
           <p class="result">Two employer-directed events, a work suspension and a switch to deep foundations, analysed in P6 to support a request for <em>289 calendar days (206 working days)</em>.</p>
           <dl class="facts">
-            <dt>Contract</dt><dd>31 sports halls, TBC work order TBC005985; engineer SAMAA</dd>
-            <dt>Hall value</dt><dd>SAR 1.87 M, baseline 10 Sep 2025 – 7 Feb 2026</dd>
+            <dt>Contract</dt><dd>31 sports halls for TBC; engineer SAMAA</dd>
+            <dt>Hall value</dt><dd>About SAR 2 M, baseline 10 Sep 2025 – 7 Feb 2026</dd>
             <dt>Methods</dt><dd>Impacted As-Planned and Time Impact Analysis</dd>
             <dt>My role</dt><dd>Delay analysis, impacted P6 schedules, claim narrative and submission deck</dd>
           </dl>
@@ -581,7 +602,7 @@ dialog.vid video{width:100%;border-radius:12px}
           <p class="result">An offline 4D portfolio that <em>plays back planned vs actual progress</em> for 32 schools and opens a 3D model of each one.</p>
           <dl class="facts">
             <dt>Release</dt><dd>v3.9, data date 5 Nov 2026</dd>
-            <dt>Scale</dt><dd>32 schools, SAR 747.3 M cost-loaded baseline</dd>
+            <dt>Scale</dt><dd>32 schools, SAR 700 M+ cost-loaded baseline</dd>
             <dt>My role</dt><dd>Built it, with Claude as AI partner</dd>
             <dt>Level</dt><dd>Schematic 4D: building, floor and package</dd>
           </dl>
@@ -908,9 +929,9 @@ const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 /* ---------- Projects ---------- */
 (() => {
   const P = [
-    {name:'Central Region 32 Schools',kind:'Educational · 4 groups, 187 buildings',loc:'Riyadh Central Region · Owner NHC, through TBC · Mehwar Al-Eqtisad',c:'#3B82F6',budget:747.3,cur:'SAR',acts:74261,dl:[['Period','Jun 2026 – forecast Apr 2028'],['My role','Planning lead; weekly P6 updates, 4D and reporting']]},
-    {name:'Al-Asala 9 Traditional Schools',kind:'Educational · 9 cost-loaded schedules',loc:'Riyadh · Owner NHC, through TBC · Mehwar Al-Eqtisad',c:'#F59E0B',budget:157.6,cur:'SAR',acts:20374,dl:[['Period','Jan 2027 – Jun 2028 (planned)'],['My role','Built all 9 P6 schedules from mapping sheets, with Claude']]},
-    {name:'64 Sports Halls',kind:'Sports facilities · 31 Central + 33 Western',loc:'Riyadh, Qassim, Madinah, Jeddah, Makkah, Al-Qunfudhah · TBC',c:'#14B8A6',budget:104.4,cur:'SAR',acts:18481,dl:[['Period','Sep 2025 – Mar 2026 (baselines)'],['Budget note','Central rises to SAR 60.0 M after VO'],['Consultants','SAMAA (Central), BEEAH (Jeddah)'],['My role','Baselines, VO revision, as-built schedules, EOT claims']],gallery:[
+    {name:'Central Region 32 Schools',kind:'Educational · 4 groups, 187 buildings',loc:'Riyadh Central Region · Owner NHC, through TBC · Mehwar Al-Eqtisad',c:'#3B82F6',budget:700,blabel:'SAR 700 M+',cur:'SAR',acts:74261,dl:[['Period','Jun 2026 – forecast Apr 2028'],['My role','Planning lead; weekly P6 updates, 4D and reporting']]},
+    {name:'Al-Asala 9 Traditional Schools',kind:'Educational · 9 cost-loaded schedules',loc:'Riyadh · Owner NHC, through TBC · Mehwar Al-Eqtisad',c:'#F59E0B',budget:150,blabel:'SAR 150 M+',cur:'SAR',acts:20374,dl:[['Period','Jan 2027 – Jun 2028 (planned)'],['My role','Built all 9 P6 schedules from mapping sheets, with Claude']]},
+    {name:'64 Sports Halls',kind:'Sports facilities · 31 Central + 33 Western',loc:'Riyadh, Qassim, Madinah, Jeddah, Makkah, Al-Qunfudhah · TBC',c:'#14B8A6',budget:100,blabel:'SAR 100 M+',cur:'SAR',acts:18481,dl:[['Period','Sep 2025 – Mar 2026 (baselines)'],['Budget note','Central halls increased by variation order'],['Consultants','SAMAA (Central), BEEAH (Jeddah)'],['My role','Baselines, VO revision, as-built schedules, EOT claims']],gallery:[
       ['S01_hall_exterior_a','Completed hall, Central region (drone survey, Jan 2026)'],['S02_hall_exterior_b','Completed hall exterior'],['S03_hall_interior_spacetruss','Hall interior with space-truss roof'],['S04_hall_interior_court','Court flooring in progress'],
       ['S05_3d_model_mph600','3D model, MPH600 hall'],['S06_3d_model_mph400','3D model, MPH400 hall'],['S07_3d_model_mph300','3D model, MPH300 hall'],['S08_p6_summary_31_halls_revised','P6 summary: 31 Central halls after VO']]},
     {name:'High Speed Rail',kind:'Rail infrastructure · viaduct works',loc:'Egypt · EDECS',c:'#F43F5E',budget:null,cur:'',acts:3000,approx:true,dl:[['Period','Nov 2024 – Apr 2025'],['My role','Senior Planning Engineer, P6 schedule and reporting']]},
@@ -920,7 +941,7 @@ const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
   P.forEach(p => grid.insertAdjacentHTML('beforeend', `<article class="proj${p.pending?' pending':''}" style="--c:${p.c}">
     <div class="kind">${p.kind}</div><h3>${p.name}</h3><div class="loc">${p.loc}</div>
     ${p.pending ? `<p class="pending-note">Budget, activity count and P6 snapshots to be added.</p>` :
-    `<div class="meter"><div class="row"><b data-v-budget="${p.budget?p.cur+' '+p.budget.toFixed(1)+' M':'Not disclosed'}" data-v-acts="${p.approx?'≈ ':''}${p.acts.toLocaleString('en-US')}">${p.budget?p.cur+' '+p.budget.toFixed(1)+' M':'Not disclosed'}</b><span class="muted lbl">budget</span></div>
+    `<div class="meter"><div class="row"><b data-v-budget="${p.budget?(p.blabel||p.cur+' '+p.budget.toFixed(1)+' M'):'Not disclosed'}" data-v-acts="${p.approx?'≈ ':''}${p.acts.toLocaleString('en-US')}">${p.budget?(p.blabel||p.cur+' '+p.budget.toFixed(1)+' M'):'Not disclosed'}</b><span class="muted lbl">budget</span></div>
       <div class="track"><div class="fill" data-budget="${p.budget?p.budget/max.budget*100:0}" data-acts="${p.acts/max.acts*100}"></div></div></div>
     <dl>${p.dl.map(([a,b])=>`<dt>${a}</dt><dd>${b}</dd>`).join('')}</dl>
     ${p.gallery ? `<div class="mini" data-gallery>${p.gallery.map(([f,c],i)=>`<button class="shot" data-src="assets/img/${f}.webp"${i>3?' hidden':''}><img loading="lazy" src="assets/img/${f}_t.webp" alt=""><span>${c}</span></button>`).join('')}</div><button class="linkbtn more-photos" type="button">View all ${p.gallery.length} photos and P6 snapshots</button>` : ''}`}</article>`));
