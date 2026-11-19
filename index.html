@@ -54,6 +54,8 @@ header.solid nav.main a.active{background:var(--ink);color:#fff}
 .top .btn{padding:8px 16px;color:#fff}
 header.solid .top-cta{background:var(--ink);border-color:var(--ink);color:#fff}
 @media (max-width:900px){nav.main{display:none}.top .btn{margin-left:auto}}
+.brand,.top .btn{white-space:nowrap}
+@media (max-width:420px){.top .wrap{gap:12px}.brand{gap:8px;font-size:.95rem}.top .btn{padding:7px 12px;font-size:.88rem}}
 
 /* Hero (night) */
 .hero{background:radial-gradient(1100px 520px at 85% -10%,#1E4E9A 0,transparent 60%),radial-gradient(700px 420px at 0% 30%,#15386B 0,transparent 65%),var(--night);color:#fff;padding:120px 0 64px;position:relative;overflow:hidden}
@@ -410,7 +412,7 @@ dialog.vid video{width:100%;border-radius:12px}
   <div class="wrap">
     <div class="sec-intro">
       <h2 id="proj-title">Projects I plan and control</h2>
-      <p class="muted">Activity counts come from the P6 schedules I built and update; budgets are rounded for this public version. Switch the measure to compare the programmes.</p>
+      <p class="muted">Budgets and activity counts come from the P6 schedules I built and update. Switch the measure to compare the programmes.</p>
     </div>
     <div class="metric-switch" role="group" aria-label="Compare by">
       <button data-metric="budget" aria-pressed="true">Budget</button>
@@ -448,7 +450,7 @@ dialog.vid video{width:100%;border-radius:12px}
           <p class="result">The weekly P6 update went from <em>at least 3 days to about 20 minutes</em>, and has run for 16 cycles in a row.</p>
           <dl class="facts">
             <dt>Client</dt><dd>TBC, via Mehwar Al-Eqtisad (Al-Rajhi subsidiary)</dd>
-            <dt>Scale</dt><dd>32 schools, 4 groups, 74,261 activities, SAR 700 M+</dd>
+            <dt>Scale</dt><dd>32 schools, 4 groups, 74,261 activities, SAR 747.2 M</dd>
             <dt>My role</dt><dd>Designed, built and run it, with Claude as AI partner</dd>
             <dt>Status</dt><dd>Live, weekly since July 2026</dd>
           </dl>
@@ -523,7 +525,7 @@ dialog.vid video{width:100%;border-radius:12px}
           <p class="result">Two employer-directed events, a work suspension and a switch to deep foundations, analysed in P6 to support a request for <em>289 calendar days (206 working days)</em>.</p>
           <dl class="facts">
             <dt>Contract</dt><dd>31 sports halls, TBC work order TBC005985; engineer SAMAA</dd>
-            <dt>Hall value</dt><dd>About SAR 2 M, baseline 10 Sep 2025 – 7 Feb 2026</dd>
+            <dt>Hall value</dt><dd>SAR 1.87 M, baseline 10 Sep 2025 – 7 Feb 2026</dd>
             <dt>Methods</dt><dd>Impacted As-Planned and Time Impact Analysis</dd>
             <dt>My role</dt><dd>Delay analysis, impacted P6 schedules, claim narrative and submission deck</dd>
           </dl>
@@ -579,7 +581,7 @@ dialog.vid video{width:100%;border-radius:12px}
           <p class="result">An offline 4D portfolio that <em>plays back planned vs actual progress</em> for 32 schools and opens a 3D model of each one.</p>
           <dl class="facts">
             <dt>Release</dt><dd>v3.9, data date 5 Nov 2026</dd>
-            <dt>Scale</dt><dd>32 schools, SAR 700 M+ cost-loaded baseline</dd>
+            <dt>Scale</dt><dd>32 schools, SAR 747.3 M cost-loaded baseline</dd>
             <dt>My role</dt><dd>Built it, with Claude as AI partner</dd>
             <dt>Level</dt><dd>Schematic 4D: building, floor and package</dd>
           </dl>
@@ -906,9 +908,9 @@ const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 /* ---------- Projects ---------- */
 (() => {
   const P = [
-    {name:'Central Region 32 Schools',kind:'Educational · 4 groups, 187 buildings',loc:'Riyadh Central Region · Owner NHC, through TBC · Mehwar Al-Eqtisad',c:'#3B82F6',budget:700,blabel:'SAR 700 M+',cur:'SAR',acts:74261,dl:[['Period','Jun 2026 – forecast Apr 2028'],['My role','Planning lead; weekly P6 updates, 4D and reporting']]},
-    {name:'Al-Asala 9 Traditional Schools',kind:'Educational · 9 cost-loaded schedules',loc:'Riyadh · Owner NHC, through TBC · Mehwar Al-Eqtisad',c:'#F59E0B',budget:150,blabel:'SAR 150 M+',cur:'SAR',acts:20374,dl:[['Period','Jan 2027 – Jun 2028 (planned)'],['My role','Built all 9 P6 schedules from mapping sheets, with Claude']]},
-    {name:'64 Sports Halls',kind:'Sports facilities · 31 Central + 33 Western',loc:'Riyadh, Qassim, Madinah, Jeddah, Makkah, Al-Qunfudhah · TBC',c:'#14B8A6',budget:100,blabel:'SAR 100 M+',cur:'SAR',acts:18481,dl:[['Period','Sep 2025 – Mar 2026 (baselines)'],['Budget note','Central halls increased by variation order'],['Consultants','SAMAA (Central), BEEAH (Jeddah)'],['My role','Baselines, VO revision, as-built schedules, EOT claims']],gallery:[
+    {name:'Central Region 32 Schools',kind:'Educational · 4 groups, 187 buildings',loc:'Riyadh Central Region · Owner NHC, through TBC · Mehwar Al-Eqtisad',c:'#3B82F6',budget:747.3,cur:'SAR',acts:74261,dl:[['Period','Jun 2026 – forecast Apr 2028'],['My role','Planning lead; weekly P6 updates, 4D and reporting']]},
+    {name:'Al-Asala 9 Traditional Schools',kind:'Educational · 9 cost-loaded schedules',loc:'Riyadh · Owner NHC, through TBC · Mehwar Al-Eqtisad',c:'#F59E0B',budget:157.6,cur:'SAR',acts:20374,dl:[['Period','Jan 2027 – Jun 2028 (planned)'],['My role','Built all 9 P6 schedules from mapping sheets, with Claude']]},
+    {name:'64 Sports Halls',kind:'Sports facilities · 31 Central + 33 Western',loc:'Riyadh, Qassim, Madinah, Jeddah, Makkah, Al-Qunfudhah · TBC',c:'#14B8A6',budget:104.4,cur:'SAR',acts:18481,dl:[['Period','Sep 2025 – Mar 2026 (baselines)'],['Budget note','Central rises to SAR 60.0 M after VO'],['Consultants','SAMAA (Central), BEEAH (Jeddah)'],['My role','Baselines, VO revision, as-built schedules, EOT claims']],gallery:[
       ['S01_hall_exterior_a','Completed hall, Central region (drone survey, Jan 2026)'],['S02_hall_exterior_b','Completed hall exterior'],['S03_hall_interior_spacetruss','Hall interior with space-truss roof'],['S04_hall_interior_court','Court flooring in progress'],
       ['S05_3d_model_mph600','3D model, MPH600 hall'],['S06_3d_model_mph400','3D model, MPH400 hall'],['S07_3d_model_mph300','3D model, MPH300 hall'],['S08_p6_summary_31_halls_revised','P6 summary: 31 Central halls after VO']]},
     {name:'High Speed Rail',kind:'Rail infrastructure · viaduct works',loc:'Egypt · EDECS',c:'#F43F5E',budget:null,cur:'',acts:3000,approx:true,dl:[['Period','Nov 2024 – Apr 2025'],['My role','Senior Planning Engineer, P6 schedule and reporting']]},
@@ -918,7 +920,7 @@ const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
   P.forEach(p => grid.insertAdjacentHTML('beforeend', `<article class="proj${p.pending?' pending':''}" style="--c:${p.c}">
     <div class="kind">${p.kind}</div><h3>${p.name}</h3><div class="loc">${p.loc}</div>
     ${p.pending ? `<p class="pending-note">Budget, activity count and P6 snapshots to be added.</p>` :
-    `<div class="meter"><div class="row"><b data-v-budget="${p.budget?(p.blabel||p.cur+' '+p.budget.toFixed(1)+' M'):'Not disclosed'}" data-v-acts="${p.approx?'≈ ':''}${p.acts.toLocaleString('en-US')}">${p.budget?(p.blabel||p.cur+' '+p.budget.toFixed(1)+' M'):'Not disclosed'}</b><span class="muted lbl">budget</span></div>
+    `<div class="meter"><div class="row"><b data-v-budget="${p.budget?p.cur+' '+p.budget.toFixed(1)+' M':'Not disclosed'}" data-v-acts="${p.approx?'≈ ':''}${p.acts.toLocaleString('en-US')}">${p.budget?p.cur+' '+p.budget.toFixed(1)+' M':'Not disclosed'}</b><span class="muted lbl">budget</span></div>
       <div class="track"><div class="fill" data-budget="${p.budget?p.budget/max.budget*100:0}" data-acts="${p.acts/max.acts*100}"></div></div></div>
     <dl>${p.dl.map(([a,b])=>`<dt>${a}</dt><dd>${b}</dd>`).join('')}</dl>
     ${p.gallery ? `<div class="mini" data-gallery>${p.gallery.map(([f,c],i)=>`<button class="shot" data-src="assets/img/${f}.webp"${i>3?' hidden':''}><img loading="lazy" src="assets/img/${f}_t.webp" alt=""><span>${c}</span></button>`).join('')}</div><button class="linkbtn more-photos" type="button">View all ${p.gallery.length} photos and P6 snapshots</button>` : ''}`}</article>`));
